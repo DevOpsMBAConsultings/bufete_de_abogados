@@ -1,0 +1,227 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bufete_de_abogados
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-02 16:35+0000\n"
+"PO-Revision-Date: 2026-03-02 16:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_PA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bufete_de_abogados
+#: model:ir.model,name:bufete_de_abogados.model_lawyer_case
+msgid "Case"
+msgstr "Caso"
+
+#. module: bufete_de_abogados
+#: model:ir.model,name:bufete_de_abogados.model_lawyer
+msgid "Lawyer"
+msgstr "Abogado"
+
+#. module: bufete_de_abogados
+msgid "Case Name"
+msgstr "Nombre del caso"
+
+#. module: bufete_de_abogados
+msgid "Description"
+msgstr "Descripción"
+
+#. module: bufete_de_abogados
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: bufete_de_abogados
+msgid "Date"
+msgstr "Fecha"
+
+#. module: bufete_de_abogados
+msgid "Assigned lawyer"
+msgstr "Abogado asignado"
+
+#. module: bufete_de_abogados
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: bufete_de_abogados
+msgid "Partners"
+msgstr "Partes"
+
+#. module: bufete_de_abogados
+msgid "New"
+msgstr "Nuevo"
+
+#. module: bufete_de_abogados
+msgid "Practice Area"
+msgstr "Área de práctica"
+
+#. module: bufete_de_abogados
+msgid "Status"
+msgstr "Estado"
+
+#. module: bufete_de_abogados
+msgid "Open"
+msgstr "Abierto"
+
+#. module: bufete_de_abogados
+msgid "Work in progress"
+msgstr "En progreso"
+
+#. module: bufete_de_abogados
+msgid "Done"
+msgstr "Terminado"
+
+#. module: bufete_de_abogados
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: bufete_de_abogados
+msgid "Date of judgment"
+msgstr "Fecha de sentencia"
+
+#. module: bufete_de_abogados
+msgid "Court Name"
+msgstr "Nombre del tribunal"
+
+#. module: bufete_de_abogados
+msgid "Judge"
+msgstr "Juez"
+
+#. module: bufete_de_abogados
+msgid "Court Docket Number"
+msgstr "Número de expediente"
+
+#. module: bufete_de_abogados
+msgid "Hearing"
+msgstr "Audiencia"
+
+#. module: bufete_de_abogados
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: bufete_de_abogados
+msgid "Mobile"
+msgstr "Móvil"
+
+#. module: bufete_de_abogados
+msgid "Gender"
+msgstr "Género"
+
+#. module: bufete_de_abogados
+msgid "Male"
+msgstr "Masculino"
+
+#. module: bufete_de_abogados
+msgid "Female"
+msgstr "Femenino"
+
+#. module: bufete_de_abogados
+msgid "Birth Date"
+msgstr "Fecha de nacimiento"
+
+#. module: bufete_de_abogados
+msgid "Image"
+msgstr "Imagen"
+
+#. module: bufete_de_abogados
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: bufete_de_abogados
+msgid "Cases"
+msgstr "Casos"
+
+#. module: bufete_de_abogados
+msgid "Scheduling Date"
+msgstr "Fecha de programación"
+
+#. module: bufete_de_abogados
+msgid "Party"
+msgstr "Parte"
+
+#. module: bufete_de_abogados
+msgid "Note"
+msgstr "Nota"
+
+#. module: bufete_de_abogados
+msgid "File"
+msgstr "Archivo"
+
+#. module: bufete_de_abogados
+msgid "Custom Model"
+msgstr "Casos asociados"
+
+#. module: bufete_de_abogados
+#: model:ir.ui.menu,name:bufete_de_abogados.lawyer_managment_root
+msgid "Lawyer Management"
+msgstr "Gestión de Abogados"
+
+#. module: bufete_de_abogados
+#: model:ir.ui.menu,name:bufete_de_abogados.lawyer_main_menu
+#: model:ir.ui.menu,name:bufete_de_abogados.lawyer_action_menu
+#: model:ir.actions.act_window,name:bufete_de_abogados.lawyer_action_view
+msgid "Lawyer"
+msgstr "Abogado"
+
+#. module: bufete_de_abogados
+#: model:ir.ui.menu,name:bufete_de_abogados.case_main_menu
+#: model:ir.ui.menu,name:bufete_de_abogados.case_action_menu
+#: model:ir.actions.act_window,name:bufete_de_abogados.case_action_view
+msgid "Case"
+msgstr "Caso"
+
+#. module: bufete_de_abogados
+#: model:ir.ui.menu,name:bufete_de_abogados.report_main_menu
+msgid "Reports"
+msgstr "Informes"
+
+#. module: bufete_de_abogados
+msgid "Work In Progress"
+msgstr "En progreso"
+
+#. module: bufete_de_abogados
+msgid "By Name"
+msgstr "Por nombre"
+
+#. module: bufete_de_abogados
+msgid "By Mobile"
+msgstr "Por móvil"
+
+#. module: bufete_de_abogados
+msgid "Lawyer's Name"
+msgstr "Nombre del abogado"
+
+#. module: bufete_de_abogados
+msgid "Employee's Name"
+msgstr "Nombre del empleado"
+
+#. module: bufete_de_abogados
+msgid "Type to find a customer..."
+msgstr "Escriba para buscar un cliente..."
+
+#. module: bufete_de_abogados
+msgid "Record does not exist."
+msgstr "El registro no existe."
+
+#. module: bufete_de_abogados
+msgid "Lawyer Cases Report"
+msgstr "Informe de casos por abogado"
+
+#. module: bufete_de_abogados
+msgid "Create Lawyer Profile"
+msgstr "Crear perfil de abogado"
+
+#. module: bufete_de_abogados
+msgid "You must assign a lawyer when the order is in 'Work in Progress' state."
+msgstr "Debe asignar un abogado cuando el pedido esté en estado 'En progreso'."
+
+#. module: bufete_de_abogados
+msgid "The case is already done."
+msgstr "El caso ya está terminado."

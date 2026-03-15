@@ -1,0 +1,26 @@
+.o_law_dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.o_law_header {
+    border-bottom: 2px solid #eee;
+}
+
+.o_dashboard_card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.o_dashboard_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.o_filter_item label {
+    font-weight: 600;
+}
+
+.form-select-sm {
+    min-width: 200px;
+}

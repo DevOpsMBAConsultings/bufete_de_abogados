@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="lawyer_managment_root"
+        name="Lawyer Management"
+        web_icon="bufete_de_abogados,static/description/icon.png"
+        sequence="10" />
+
+    <!-- Dashboard Menu -->
+    <menuitem id="lawyer_dashboard_menu"
+        name="Dashboard"
+        parent="lawyer_managment_root"
+        action="action_law_dashboard"
+        sequence="1" />
+
+    <!-- Legal Advice Menu -->
+    <menuitem id="legal_advice_menu"
+        name="Legal Advice"
+        parent="lawyer_managment_root"
+        action="action_legal_advice"
+        sequence="15" />
+
+    <!-- Clientes Menu -->
+    <menuitem id="lawyer_clients_menu"
+        name="Clientes"
+        parent="lawyer_managment_root"
+        action="action_law_clients"
+        sequence="16" />
+
+    <menuitem id="lawyer_main_menu"
+        name="Abogado"
+        parent="lawyer_managment_root"
+        action="lawyer_action_view"
+        sequence="20" />
+
+    <menuitem id="case_main_menu"
+        name="Caso"
+        parent="lawyer_managment_root"
+        action="case_action_view"
+        sequence="22" />
+
+    <!-- Reports Menu -->
+    <menuitem id="report_main_menu"
+        name="Reports"
+        parent="lawyer_managment_root"
+        sequence="25" />
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_lawyer_config"
+        name="Configuration"
+        parent="lawyer_managment_root"
+        sequence="100" />
+
+    <menuitem id="menu_case_stage"
+        name="Case Stages"
+        parent="menu_lawyer_config"
+        action="action_case_stage"
+        sequence="10" />
+
+    <menuitem id="menu_law_court"
+        name="Courts"
+        parent="menu_lawyer_config"
+        action="action_law_court"
+        sequence="20" />
+
+    <menuitem id="menu_law_judge"
+        name="Judges"
+        parent="menu_lawyer_config"
+        action="action_law_judge"
+        sequence="30" />
+
+    <menuitem id="menu_practice_area"
+        name="Practice Areas"
+        parent="menu_lawyer_config"
+        action="action_practice_area"
+        sequence="40" />
+
+    <menuitem id="menu_law_services"
+        name="Servicios"
+        parent="menu_lawyer_config"
+        action="action_law_services"
+        sequence="50" />
+
+
+</odoo>

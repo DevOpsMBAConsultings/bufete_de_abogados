@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_form_law_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.law.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <!-- Add is_law_client checkbox -->
+            <xpath expr="//field[@name='function']" position="before">
+                <field name="is_law_client" />
+            </xpath>
+
+            <!-- Add Smart Buttons -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_cases" type="object" class="oe_stat_button"
+                    icon="fa-briefcase"
+                    invisible="not is_law_client">
+                    <field name="case_count" widget="statinfo" string="Casos" />
+                </button>
+                <button name="action_view_legal_advice" type="object" class="oe_stat_button"
+                    icon="fa-comments"
+                    invisible="not is_law_client">
+                    <field name="advice_count" widget="statinfo" string="Legal Advice" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- action for law clients specifically -->
+    <record id="action_law_clients" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('is_law_client', '=', True)]</field>
+        <field name="context">{'default_is_law_client': True}</field>
+    </record>
+</odoo>

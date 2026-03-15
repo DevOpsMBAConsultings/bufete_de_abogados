@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lawyer,access.lawyer,model_lawyer,base.group_user,1,1,1,1
+access_practice_area,access.practice.area,model_practice_area,base.group_user,1,1,1,1
+access_lawyer_case,access.lawyer.case,model_lawyer_case,base.group_user,1,1,1,1
+access_hearing_case,access.hearing.case,model_hearing_case,base.group_user,1,1,1,1
+access_document,access.document,model_document,base.group_user,1,1,1,1
+access_case_report_wizard,access.case.report.wizard,model_case_report_wizard,base.group_user,1,1,1,1
+access_lawyer_case_report_wizard,access.lawyer.case.report.wizard,model_lawyer_case_report_wizard,base.group_user,1,1,1,1
+access_case_stage,access.case.stage,model_case_stage,base.group_user,1,1,1,1
+access_law_court,access.law.court,model_law_court,base.group_user,1,1,1,1
+access_law_judge,access.law.judge,model_law_judge,base.group_user,1,1,1,1
+access_legal_advice,access.legal.advice,model_legal_advice,base.group_user,1,1,1,1
+access_legal_advice_service_line,access.legal.advice.service.line,model_legal_advice_service_line,base.group_user,1,1,1,1
+access_lawyer_case_service_line,access.lawyer.case.service.line,model_lawyer_case_service_line,base.group_user,1,1,1,1

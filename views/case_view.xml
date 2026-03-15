@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Define the list view for the case model -->
+    <record id="view_lawyer_case_tree" model="ir.ui.view">
+        <field name="name">lawyer.case.list</field>
+        <field name="model">lawyer.case</field>
+        <field name="arch" type="xml">
+            <list string="Case" sample="1">
+                <field name="name" string="Number" readonly="1" decoration-bf="1" />
+                <field name="partners_id" />
+                <field name="assigned_lawyer" />
+                <field name="date" />
+                <field name="product_document_ids" />
+                <field name="case_name" />
+                <field name="case_type_id" />
+                <field name="stage_id" widget="badge" />
+                <field name="description" />
+                <field name="amount_total" sum="Total Revenue" widget="monetary"
+                    options="{'currency_field': 'currency_id'}" />
+                <field name="currency_id" column_invisible="True" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Define the form view for the case model -->
+    <record id="view_lawyer_case_form" model="ir.ui.view">
+        <field name="name">lawyer.case.form</field>
+        <field name="model">lawyer.case</field>
+        <field name="arch" type="xml">
+            <form string="Case" class="o_form_full_width">
+                <header>
+                    <button name="action_work_in_progress" type="object"
+                        string="Set to WIP" class="oe_highlight"
+                        invisible="stage_id != False and stage_id != %(stage_draft)d" />
+
+                    <button name="action_create_quotation" type="object"
+                        string="Generar Cotización" class="oe_highlight"
+                        invisible="sale_order_id != False or stage_id == False" />
+
+                    <button name="action_done" type="object"
+                        string="Done" class="btn-success"
+                        invisible="stage_id == False or stage_id == %(stage_done)d or stage_id == %(stage_closed)d" />
+
+                    <button name="action_closed" type="object"
+                        string="Closed"
+                        invisible="stage_id == False or stage_id == %(stage_closed)d" />
+
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1'}" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partners_id" widget="res_partner_many2one"
+                                placeholder="Type to find a customer..." />
+                            <field name="case_type_id" />
+                            <field name="description" />
+                            <field name="sale_order_id" />
+                        </group>
+                        <group>
+                            <field name="case_name" />
+                            <field name="date_of_judgment" />
+                            <field name="date" />
+                            <field name="assigned_lawyer" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="amount_total" widget="monetary"
+                                options="{'currency_field': 'currency_id'}" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Servicios" name="services">
+                            <field name="service_line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id" />
+                                    <field name="name" />
+                                    <field name="quantity" />
+                                    <field name="price_unit" />
+                                    <field name="subtotal" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Partners" name="partners">
+                            <field name="partners_ids" widget="one2many">
+                                <list editable="bottom" create="true">
+                                    <field name="name" />
+                                    <field name="email" />
+                                    <field name="phone" />
+                                </list>
+                                <form>
+                                    <field name="name" />
+                                    <field name="email" />
+                                    <field name="phone" />
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Document" name="document">
+                            <field name="product_document_ids">
+                                <list string="Documents" editable="bottom">
+                                    <field name="name" />
+                                    <field name="file" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Court Details" name="court">
+                            <div id="o_work_employee_container" class="d-lg-flex">
+                                <div id="o_work_employee_main">
+                                    <group>
+                                        <group>
+                                            <field name="judge_id" />
+                                        </group>
+                                        <group>
+                                            <field name="court_id" />
+                                            <field name="court_docket_number" />
+                                        </group>
+                                    </group>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Hearing" name="hearing">
+                            <field name="hearing_ids">
+                                <list editable="bottom">
+                                    <field name="scheduling_date" />
+                                    <field name="party_id" />
+                                    <field name="witness_ids" widget="many2many_tags" />
+                                    <field name="result" />
+                                    <field name="note" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Kanban View -->
+    <record id="view_lawyer_case_kanban" model="ir.ui.view">
+        <field name="name">lawyer.case.kanban</field>
+        <field name="model">lawyer.case</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id" class="o_kanban_small_column" sample="1">
+                <field name="amount_total" />
+                <field name="currency_id" />
+                <field name="kanban_state" />
+                <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger"}'
+                    sum_field="amount_total" />
+                <field name="stage_id" />
+                <field name="case_name" />
+                <field name="partners_id" />
+                <field name="date" />
+                <field name="assigned_lawyer" />
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="case_name" />
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div>
+                                    <i class="fa fa-user" title="Customer" />
+                                    <field name="partners_id" />
+                                </div>
+                                <div t-if="record.date.raw_value">
+                                    <i class="fa fa-calendar" title="Date" />
+                                    <field name="date" />
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="assigned_lawyer" />
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <field name="stage_id" widget="badge"
+                                                options="{'color_field': 'color'}" />
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <strong>
+                                                <field name="amount_total" widget="monetary"
+                                                    options="{'currency_field': 'currency_id'}" />
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Search View -->
+    <record id="view_lawyer_case_search" model="ir.ui.view">
+        <field name="name">lawyer.case.search</field>
+        <field name="model">lawyer.case</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="case_name" />
+                <field name="partners_id" />
+                <field name="stage_id" />
+                <group>
+                    <filter string="Stage" name="stage" domain="[]"
+                        context="{'group_by': 'stage_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="case_action_view" model="ir.actions.act_window">
+        <field name="name">Case</field>
+        <field name="res_model">lawyer.case</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[]</field>
+    </record>
+
+
+</odoo>
