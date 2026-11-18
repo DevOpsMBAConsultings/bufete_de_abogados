@@ -4,7 +4,7 @@
 
 {
     'name' : 'Bufete de Abogados' ,
-    'version' : '19.0.1.0.0',
+    'version' : '18.0.1.0.0',
     'sequence': 16,
     'category' : 'Legal',
     'summary' : 'Sistema integral para la gestión de bufetes de abogados, Asoría Legal y Casos',
